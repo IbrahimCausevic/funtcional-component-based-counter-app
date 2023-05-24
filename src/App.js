@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
 
-function App() {
+const App = (props) => {
+  const [state, setState] = React.useState({
+    number: 0,
+  });
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div className="border">
+          <h1>{state.number}</h1>
+          <div className="flex">
+            <button
+              className="count"
+              onClick={() => {
+                setState({ number: state.number + 1 });
+              }}
+            ></button>
+            <button
+              className="reset"
+              onClick={() => setState({ number: 0 })}
+            ></button>{" "}
+          </div>
+        </div>
       </header>
     </div>
   );
-}
+};
 
 export default App;
